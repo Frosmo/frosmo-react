@@ -1,0 +1,36 @@
+{
+  "name": "frosmo",
+  "version": "1.0.0",
+  "description": "Frosmo React connector.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack --watch --info-verbosity verbose --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "rm -rf ./dist && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.frosmo:CS/react-connector.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Joona Ojapalo",
+    "email": "joona.ojapalo@frosmo.com"
+  },
+  "contributors": [],
+  "license": "ISC",
+  "peerDependencies": {
+    "react": ">=16.7.0",
+    "react-dom": ">=16.7.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^ 7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
