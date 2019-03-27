@@ -1,13 +1,15 @@
 const babel = require('rollup-plugin-babel');
-const { uglify } = require('rollup-plugin-uglify');
 const resolve = require('rollup-plugin-node-resolve');
+
+const { uglify } = require('rollup-plugin-uglify');
 
 const CJSBuild = {
     input: './src/index.js',
     output: {
         file: './dist/index.min.js',
+        sourcemap: true,
         format: 'cjs',
-        compact: false,
+        compact: true,
     },
     plugins: [
         babel({
