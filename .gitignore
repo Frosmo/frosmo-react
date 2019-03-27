@@ -1,1 +1,8 @@
+# Node modules
 node_modules
+
+# Logs
+*.log
+
+# IDE's
+.idea

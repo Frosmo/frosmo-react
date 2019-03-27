@@ -4,7 +4,7 @@
   "description": "Frosmo React connector.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "rollup -c",
     "start": "webpack --watch --info-verbosity verbose --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "rm -rf ./dist && npm run build"
@@ -28,8 +28,14 @@
     "@babel/cli": "^ 7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.4.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "rollup": "^1.7.3",
+    "rollup-plugin-babel": "4",
+    "rollup-plugin-cpy": "1.1.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-uglify": "^6.0.2",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2"
   }
