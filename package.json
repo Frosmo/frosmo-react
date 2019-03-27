@@ -2,12 +2,11 @@
   "name": "frosmo",
   "version": "1.0.0",
   "description": "Frosmo React connector.",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "build": "rollup -c",
-    "start": "webpack --watch --info-verbosity verbose --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "rm -rf ./dist && npm run build"
+    "build": "node_modules/.bin/rollup -c",
+    "watch": "node_modules/.bin/rollup --watch -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,10 @@
     "name": "Joona Ojapalo",
     "email": "joona.ojapalo@frosmo.com"
   },
-  "contributors": [],
+  "contributors": [{
+    "name": "Anderew Fatkulin",
+    "email": "andrew.fatkulin@frosmo.com"
+  }],
   "license": "ISC",
   "peerDependencies": {
     "react": ">=16.7.0",
