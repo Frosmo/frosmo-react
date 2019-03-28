@@ -159,7 +159,7 @@ export default class FrosmoPlacement extends React.Component {
                 this.setState({
                     status: STATUS_ERROR
                 });
-                frosmo.spa.log('error', error);
+                frosmo.spa.log.error(error, 'spa.react.placement');
             })
     }
 
