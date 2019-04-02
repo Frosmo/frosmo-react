@@ -1,6 +1,7 @@
 /* global frosmo */
 /* eslint-disable no-nested-ternary */
 import React from 'react';
+import assign from 'object-assign';
 import PropTypes from 'prop-types';
 
 const STATUS_LOADING = 'loading';
@@ -30,7 +31,7 @@ const ChildComponentPropTypes = {
       rules: PropTypes.array,
     }),
   };
-  
+
 const ChildComponentDefaultProps = {
     children: null,
     component: null,
@@ -44,7 +45,7 @@ const ChildComponentDefaultProps = {
 
 /**
  * Custom React component provided by Frosmo (Joona Ojapalo)
- */  
+ */
 class ChildComponent extends React.Component {
     render () {
         const {
@@ -71,7 +72,7 @@ class ChildComponent extends React.Component {
                 const templateDefaults = message.template
                     ? JSON.parse(message.template.defaults)
                     : {};
-                
+
                 // build props for modification component
                 const messageProps = {
                     ...templateDefaults,
@@ -86,7 +87,7 @@ class ChildComponent extends React.Component {
                      ? React.createElement(component, messageProps)
                      : hasChildren
                         ? React.Children.map(children, child => {
-                            const props = Object.assign({}, child.props, messageProps);
+                            const props = assign({}, child.props, messageProps);
                             return React.createElement(child.type, props);
                         })
                         : null;
@@ -94,7 +95,7 @@ class ChildComponent extends React.Component {
                 // display tracking
                 if (outputComponent) {
                     const mi = positionData.getMessageInstance();
-                    mi.setDisplayed();    
+                    mi.setDisplayed();
                 }
 
                 // show loadComponent as fallback
@@ -141,11 +142,11 @@ export default class FrosmoPlacement extends React.Component {
 
         frosmo.spa.requestBySelector(id)
             .then(messageHandle => {
-                // no display from server-side 
+                // no display from server-side
                 if (!messageHandle.positionData.message) {
                     this.setState({
                         status: STATUS_NOTFOUND
-                    }); 
+                    });
                 }
 
                 this.setState({
@@ -199,7 +200,7 @@ export default class FrosmoPlacement extends React.Component {
 
     render() {
         // pass state as immutable props
-        const stateClone = Object.assign({}, this.state);
+        const stateClone = assign({}, this.state);
         const element = <ChildComponent {...this.props} {...stateClone}/>;
 
         // wrap in fragment

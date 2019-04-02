@@ -22,7 +22,7 @@ const CJSBuild = {
         }),
         uglify(),
     ],
-    external: ['react', 'prop-types'],
+    external: ['react', 'prop-types', 'object-assign'],
 };
 
 module.exports = CJSBuild;
