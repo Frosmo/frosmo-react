@@ -4,6 +4,11 @@ import React from 'react';
 import assign from 'object-assign';
 import PropTypes from 'prop-types';
 
+import { pick } from '../../utils';
+
+// props passed child component 
+const pickState = ["status", "component", "loadComponent", "errorComponent", "message", "positionData"];
+
 const STATUS_LOADING = 'loading';
 const STATUS_SUCCESS = 'success';
 const STATUS_ERROR = 'error';
@@ -124,10 +129,14 @@ export default class FrosmoPlacement extends React.Component {
     constructor(props) {
         super(props);
 
+        // bind to class
+        this.onFrosmoSpaReady.bind(this)
+
         this.state = {
             status: STATUS_LOADING,
             message: null,
             positionData: null,
+            fetchPromise: null,
         };
 
         if (!props.id) {
@@ -140,16 +149,19 @@ export default class FrosmoPlacement extends React.Component {
 
         const id = this.props.id;
 
-        frosmo.spa.requestBySelector(id)
+        // start loading
+        const fetchPromise = frosmo.spa.requestBySelector(id)
             .then(messageHandle => {
                 // no display from server-side
                 if (!messageHandle.positionData.message) {
                     this.setState({
-                        status: STATUS_NOTFOUND
+                        fetchPromise: null,
+                        status: STATUS_NOTFOUND,
                     });
                 }
 
                 this.setState({
+                    fetchPromise: null,
                     status: STATUS_SUCCESS,
                     message: messageHandle.positionData.message,
                     positionData: messageHandle.positionData,
@@ -161,24 +173,32 @@ export default class FrosmoPlacement extends React.Component {
                     status: STATUS_ERROR
                 });
                 frosmo.spa.log.error(error, 'spa.react.placement');
-            })
+            });
+
+        this.setState({fetchPromise});
     }
 
     componentWillUnmount() {
-        // clear message if was loaded
-        if (!this.state.positionData) {
-            return;
+        // clear plugging, if exist
+        window.removeEventListener(DOM_EVENT_FROSMO_SPA_READY, this.onFrosmoSpaReady);
+
+        // cancel ongoing fetch request
+        if (this.state.fetchPromise) {
+            this.state.fetchPromise.cancel();
         }
 
-        // cleanup
-        this.state.clearMessage();
+        // clear message if was loaded
+        if (this.state.clearMessage) {
+            this.state.clearMessage();
+        }
     }
 
     componentDidMount() {
+        // start plugging
         if (window.frosmo && window.frosmo.spa) {
             this.onFrosmoSpaReady();
         } else {
-            window.addEventListener(DOM_EVENT_FROSMO_SPA_READY, this.onFrosmoSpaReady.bind(this));
+            window.addEventListener(DOM_EVENT_FROSMO_SPA_READY, this.onFrosmoSpaReady);
         }
     }
 
@@ -200,7 +220,7 @@ export default class FrosmoPlacement extends React.Component {
 
     render() {
         // pass state as immutable props
-        const stateClone = assign({}, this.state);
+        const stateClone = pick(this.state, pickState);
         const element = <ChildComponent {...this.props} {...stateClone}/>;
 
         // wrap in fragment

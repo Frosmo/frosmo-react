@@ -36,9 +36,9 @@ const Comp = props => {
 const ComponentA = props => <h1>I'm content A</h1>;
 const ComponentB = props => <h1>I'm content B</h1>;
 
-const FrosmoVariation = ({id, component, frosmoMessage}) =>
-    +frosmoMessage.id === +id
-        ? component
+const FrosmoVariation = props =>
+    +props.frosmoMessage.revision === +props.id
+        ? React.createElement(props.component, props)
         : null;
 
 <FrosmoPlacement>

@@ -7,7 +7,7 @@ const CJSBuild = {
     input: './src/index.js',
     output: {
         file: './dist/index.min.js',
-        sourcemap: true,
+        sourcemap: 'inline',
         format: 'cjs',
         compact: true,
     },
