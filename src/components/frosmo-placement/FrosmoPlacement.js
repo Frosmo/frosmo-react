@@ -17,15 +17,24 @@ const DOM_EVENT_FROSMO_SPA_READY = 'frosmo.spa.ready'
 
 const ChildComponentPropTypes = {
     children: PropTypes.node,
-    component: PropTypes.node,
+    component: PropTypes.oneOfType([
+        PropTypes.node,
+        PropTypes.elementType,
+    ]),
     status: PropTypes.oneOf([
       STATUS_LOADING,
       STATUS_SUCCESS,
       STATUS_NOTFOUND,
       STATUS_ERROR,
     ]),
-    loadComponent: PropTypes.node,
-    errorComponent: PropTypes.node,
+    loadComponent: PropTypes.oneOfType([
+        PropTypes.node,
+        PropTypes.elementType,
+    ]),
+    errorComponent: PropTypes.oneOfType([
+        PropTypes.node,
+        PropTypes.elementType,
+    ]),
     message: PropTypes.shape({
       template: PropTypes.shape({
         defaults: PropTypes.any,
