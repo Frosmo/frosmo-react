@@ -5,7 +5,11 @@
  * @returns {Object}
  */
 const pick = (obj, keys) => keys.reduce((acc, key) => {
-    if (obj[key]) {
+    if (typeof obj !== 'object') {
+        return {};
+    }
+
+    if (obj.hasOwnProperty(key)) {
         acc[key] = obj[key];
     }
     return acc;

@@ -9,13 +9,10 @@ const Comp = props => {
     // setup ref and effect hooks
     const elementRef = useRef(null);
     useEffect(() => {
-        // get frosmo MessageInstance
-        const instance = props.frosmoPositionData.getMessageInstance();
-
         // get dom element reference
         const el = elementRef.current;
-        instance.setTrackableElements(el);
-        instance.startTracking();
+        props.setTrackableElements(el);
+        props.startTracking();
     });
 
     return
@@ -37,12 +34,12 @@ const ComponentA = props => <h1>I'm content A</h1>;
 const ComponentB = props => <h1>I'm content B</h1>;
 
 const FrosmoVariation = props =>
-    +props.frosmoMessage.revision === +props.id
+    Number(props.frosmoMessage.revision) === Number(props.id)
         ? React.createElement(props.component, props)
         : null;
 
 <FrosmoPlacement>
-    <FrosmoVariation id="1" comonent={ComponentA}/>
-    <FrosmoVariation id="2" comonent={ComponentB}/>
+    <FrosmoVariation id="1" component={ComponentA}/>
+    <FrosmoVariation id="2" component={ComponentB}/>
 </FrosmoPlacement>
 ```
