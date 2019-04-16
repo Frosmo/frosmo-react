@@ -1,22 +1,10 @@
-# frosmo
+# frosmo-react
 
 Frosmo React connector component.
 
-## `npm run build`
-
-Build library.
-
-## `npm run watch`
-
-Start in watch mode.
-
-## `npm test`
-
-Run test suite.
-
 ## Documentation
 
-### `FrosmoPlacement`
+### `<FrosmoPlacement>` component
 
 `FrosmoPlacement` is a base wrapper component to Frosmo display, optimization and testing logic. Children components
 will receive _template default_ parameters as props. Components will also receive property `frosmoModificationContext`
@@ -29,7 +17,7 @@ child components and will override rendering of children if used.
 </FrosmoPlacement>
 ```
 
-Properties:
+**Component properties:**
 
 | Property         | Description                 |
 |------------------|-----------------------------|
@@ -48,5 +36,18 @@ Properties:
 | setClicked            | `function` Click tracking function. |
 | setDisplayed          | `function` Display tracking function.|
 | setTrueDisplayed      | `function` True display tracking function.|
-| setTrackableElements  | `function` argument `HTMLElement|Array<HTMLElement>` |
+| setTrackableElements  | `function` argument `HTMLElement` or Array of `HTMLElement`s |
 | startTracking         | `function` Start Frosmo default tracking on elements set by function `setTrackableElements` |
+
+## `npm run build`
+
+Build library.
+
+## `npm run watch`
+
+Start in watch mode.
+
+## `npm test`
+
+Run test suite.
+

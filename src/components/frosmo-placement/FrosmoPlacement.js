@@ -15,10 +15,6 @@ const FrosmoComponentDefaultProps = {
 class FrosmoPlacement extends Component {
     constructor(props) {
         super(props);
-
-        if (!props.id) {
-            throw new Error('FrosmoPlacement: "id" property missing.', props);
-        }
     }
 
     componentDidMount() {

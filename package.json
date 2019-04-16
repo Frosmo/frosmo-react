@@ -1,6 +1,6 @@
 {
   "name": "frosmo",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Frosmo React connector.",
   "main": "index.js",
   "scripts": {

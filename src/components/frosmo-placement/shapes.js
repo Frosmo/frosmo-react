@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const ModificationContextPropTypes = {
     variation: PropTypes.number.isRequired,
@@ -15,15 +16,6 @@ const ModificationContextPropTypes = {
 
 const FrosmoPropTypes = {
     children: PropTypes.node,
-    component: PropTypes.oneOfType([
-        PropTypes.node,
-        PropTypes.elementType,
-    ]),
-    defaultComponent: PropTypes.oneOfType([
-        PropTypes.node,
-        PropTypes.elementType,
-    ]),
-
     modificationContext: PropTypes.exact(ModificationContextPropTypes),
 };
 

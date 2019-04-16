@@ -1,7 +1,7 @@
-import withMessage from './components/hocs/withMessage';
+import withModification from './components/hocs/withModification';
 import FrosmoPlacementComponent from './components/frosmo-placement';
 
-const FrosmoPlacement = withMessage(FrosmoPlacementComponent);
+const FrosmoPlacement = withModification(FrosmoPlacementComponent);
 
 export {
     FrosmoPlacement,
