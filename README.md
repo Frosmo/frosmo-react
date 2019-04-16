@@ -5,7 +5,7 @@ Frosmo React connector component. See official FROSMO documentation for detailed
 ## Installation
 
 ```
-npm i "git+https://github.com/Frosmo/frosmo-react.git#v0.1.0"
+npm i "git+https://github.com/Frosmo/frosmo-react.git#v0.1.1"
 ```
 
 ## Documentation
