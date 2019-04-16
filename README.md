@@ -39,15 +39,16 @@ child components and will override rendering of children if used.
 | setTrackableElements  | `function` argument `HTMLElement` or Array of `HTMLElement`s |
 | startTracking         | `function` Start Frosmo default tracking on elements set by function `setTrackableElements` |
 
-## `npm run build`
+## Development
+### `npm run build`
 
 Build library.
 
-## `npm run watch`
+### `npm run watch`
 
 Start in watch mode.
 
-## `npm test`
+### `npm test`
 
 Run test suite.
 
