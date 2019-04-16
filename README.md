@@ -1,6 +1,6 @@
 # frosmo-react
 
-Frosmo React connector component.
+Frosmo React connector component. See official FROSMO documentation for detailed desciption of how FROSMO works: https://docs.frosmo.com 
 
 ## Documentation
 
@@ -28,16 +28,16 @@ child components and will override rendering of children if used.
 
 ### `frosmoModificationContext` object
 
-| Property              | Description                 |
-|-----------------------|-----------------------------|
-| variation             | `number` Modification variation number. |
-| params                | `object` Modification parameters |
-| content               | `string` Modification string body. |
-| setClicked            | `function` Click tracking function. |
-| setDisplayed          | `function` Display tracking function.|
-| setTrueDisplayed      | `function` True display tracking function.|
-| setTrackableElements  | `function` argument `HTMLElement` or Array of `HTMLElement`s |
-| startTracking         | `function` Start Frosmo default tracking on elements set by function `setTrackableElements` |
+| Property              | Type       | Description                 |
+|-----------------------|------------|-----------------------------|
+| variation             | `number`   | Modification variation number. |
+| params                | `object`   | Modification parameters |
+| content               | `string`   | Modification string body. |
+| setClicked            | `function` | Click tracking function. |
+| setDisplayed          | `function` | Display tracking function.|
+| setTrueDisplayed      | `function` | True display tracking function.|
+| setTrackableElements  | `function` | Sets elements to track: `HTMLElement` or Array of `HTMLElement`s |
+| startTracking         | `function` | Start Frosmo default tracking on elements set by function `setTrackableElements` |
 
 ## Development
 ### `npm run build`
