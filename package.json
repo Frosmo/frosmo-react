@@ -12,18 +12,23 @@
     "type": "git",
     "url": "git@gitlab.frosmo:CS/react-connector.git"
   },
-  "keywords": [],
-  "author": {
+  "keywords": [
+    "frosmo"
+  ],
+  "authors": [{
     "name": "Joona Ojapalo",
     "email": "joona.ojapalo@frosmo.com"
-  },
-  "contributors": [
+    },
     {
       "name": "Andrew Fatkulin",
       "email": "andrew.fatkulin@frosmo.com"
     }
   ],
   "license": "ISC",
+  "files": [
+    "dist",
+    "index.js"
+  ],
   "peerDependencies": {
     "react": ">=16.7.0",
     "react-dom": ">=16.7.0",
