@@ -2,6 +2,12 @@
 
 Frosmo React connector component. See official FROSMO documentation for detailed desciption of how FROSMO works: https://docs.frosmo.com 
 
+## Installation
+
+```
+npm i "git+https://github.com/Frosmo/frosmo-react.git#v0.1.0"
+```
+
 ## Documentation
 
 ### `<FrosmoPlacement>` component
