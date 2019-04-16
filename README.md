@@ -12,7 +12,7 @@ object that provides access to modification content and tracking functions. Rend
 child components and will override rendering of children if used.
 
 ```js
-<FrosmoPlacement defaultComponent={DefaultContent}>
+<FrosmoPlacement id="fcp-placement-id" defaultComponent={DefaultContent}>
   <PersonalizedContent/>
 </FrosmoPlacement>
 ```
