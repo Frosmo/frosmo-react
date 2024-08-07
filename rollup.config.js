@@ -1,7 +1,6 @@
-const babel = require('rollup-plugin-babel');
-const resolve = require('rollup-plugin-node-resolve');
-
-const { uglify } = require('rollup-plugin-uglify');
+const babel = require('@rollup/plugin-babel');
+const resolve = require('@rollup/plugin-node-resolve');
+//const { uglify } = require('rollup-plugin-uglify');
 
 const CJSBuild = {
     input: './src/index.js',
@@ -14,13 +13,14 @@ const CJSBuild = {
     plugins: [
         babel({
             exclude: './node_modules/**',
+            babelHelpers: 'bundled'
         }),
         resolve({
             customResolveOptions: {
-                moduleDirectory: 'node_modules',
+                moduleDirectories: ['node_modules'],
             },
         }),
-        uglify(),
+      //  uglify(),
     ],
     external: ['react', 'prop-types', 'object-assign'],
 };
